@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('data:image/png;base64,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') no-repeat center center fixed; 
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .menu-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+        .wallet-info {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .disconnect-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fc466b;
+            background-color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .disconnect-button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Menu</h2>
+        <div class="menu-box">
+            <div id="walletInfo" class="wallet-info">Loading wallet information...</div>
+            <button class="disconnect-button" onclick="disconnectWallet()">Disconnect Wallet</button>
+        </div>
+    </div>
+    <script>
+        const connectedWallet = localStorage.getItem('connectedWallet');
+        if (connectedWallet) {
+            document.getElementById("walletInfo").innerText = "Connected Wallet: " + connectedWallet;
+        } else {
+            alert("No wallet connected.");
+            window.location.href = "connect_wallet.html";
+        }
+
+        function disconnectWallet() {
+            localStorage.removeItem('connectedWallet');
+            alert("Wallet disconnected.");
+            window.location.href = "connect_wallet.html";
+        }
+    </script>
+</body>
+</html>

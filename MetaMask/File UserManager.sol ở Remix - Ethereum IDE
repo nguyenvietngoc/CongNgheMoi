@@ -1,0 +1,51 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract UserManager {
+    struct User {
+        string name;
+        uint health;
+        uint strength;
+    }
+
+    User[] public users;
+
+    event UserAdded(uint indexed userId, string name, uint health, uint strength);
+    event UserUpdated(uint indexed userId, string name, uint health, uint strength);
+    event UserDeleted(uint indexed userId);
+
+    // Thêm người dùng mới
+    function addUser(string memory _name, uint _health, uint _strength) public {
+        users.push(User(_name, _health, _strength));
+        emit UserAdded(users.length - 1, _name, _health, _strength);
+    }
+
+    // Cập nhật người dùng
+    function updateUser(uint _index, string memory _name, uint _health, uint _strength) public {
+        require(_index < users.length, "User does not exist.");
+        users[_index] = User(_name, _health, _strength);
+        emit UserUpdated(_index, _name, _health, _strength);
+    }
+
+    // Xóa người dùng
+    function deleteUser(uint _index) public {
+        require(_index < users.length, "User does not exist.");
+        for (uint i = _index; i < users.length - 1; i++) {
+            users[i] = users[i + 1];
+        }
+        users.pop();
+        emit UserDeleted(_index);
+    }
+
+    // Lấy tổng số người dùng
+    function getUsersCount() public view returns (uint) {
+        return users.length;
+    }
+
+    // Lấy thông tin người dùng (thêm hàm này nếu bạn cần lấy chi tiết một người dùng cụ thể)
+    function getUser(uint _index) public view returns (string memory, uint, uint) {
+        require(_index < users.length, "User does not exist.");
+        User memory user = users[_index];
+        return (user.name, user.health, user.strength);
+    }
+}
